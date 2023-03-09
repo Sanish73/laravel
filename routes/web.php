@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\listingData;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,28 +13,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//ALL listing
 Route::get('/', function () {
     return view('listings',[
         'heading' => 'latest listing',
-        'listings' =>[
-            [
-                'id' => 1,
-                'title' => 'listing one',
-                'description' =>'Here is where you can register web routes for your application. These
-                | routes are loaded by the RouteServiceProvider within a group which
-                | contains the "web" middleware group. Now create something great!'
+        'listings' =>listingData::all()
+    ]);
+});
 
-            ],
-            [
-                'id' => 2,
-                'title' => 'listing two',
-                'description' =>'Here is where you can register web routes for your application. These
-                | routes are loaded by the RouteServiceProvider within a group which
-                | contains the "web" middleware group. Now create something great!'
-
-            ]
-        ]
+//single listing
+Route::get('/listings/{id}',function($id){
+    return view('listing',
+    [
+            'listing'=>listingData::find($id)
     ]);
 });
 
