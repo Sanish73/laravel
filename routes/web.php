@@ -15,21 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('listings');
 });
 
-Route::get('/demo', function(){
-    return response('<h1>this is demo</h1>') 
-             ->header('Content-type','text/plane')
-             ->header('foo','bar');
-});
+// Route::get('/demo', function(){
+//     return response('<h1>this is demo</h1>') 
+//              ->header('Content-type','text/plane')
+//              ->header('foo','bar');
+// });
 
 
-Route::get('/posts/{id}',function($id){
-    dd($id);
-    return response('Post'.$id);
-})->where('id','[0-9]+');
+// Route::get('/posts/{id}',function($id){
+//     dd($id);
+//     return response('Post'.$id);
+// })->where('id','[0-9]+');
 
-Route::get('/search' , function(Request $request){
-    return $request->name.' ' .$request->city;
-});
+// Route::get('/search' , function(Request $request){
+//     return $request->name.' ' .$request->city;
+// });
