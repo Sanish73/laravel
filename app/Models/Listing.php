@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class listingData{
+class Listing{
     public static function all(){
         return [
             [

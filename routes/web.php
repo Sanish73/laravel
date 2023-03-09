@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\listingData;
+use App\Models\Listing;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +17,7 @@ use App\Models\listingData;
 Route::get('/', function () {
     return view('listings',[
         'heading' => 'latest listing',
-        'listings' =>listingData::all()
+        'listings' =>Listing::all()
     ]);
 });
 
@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/listings/{id}',function($id){
     return view('listing',
     [
-            'listing'=>listingData::find($id)
+            'listing'=>Listing::find($id)
     ]);
 });
 
